@@ -1,14 +1,7 @@
-# 🔓 ChatGPT Input Unlocker
 
-A Chrome extension that automatically re-enables the ChatGPT input box when it gets randomly disabled — including when React re-disables it internally.
+A Chrome extension that automatically re-enables the gpt input box when it gets  disabled due to limit  including when React re-disables it internally.
+<img width="276" height="302" alt="image" src="https://github.com/user-attachments/assets/dbfbe43e-2f7d-4e64-8cde-f2d22d0f194e" />
 
-## Features
-
-- Real-time watching via `MutationObserver`
-- Intercepts React's `disabled` property setter so it can never re-apply
-- Interval-based fallback scan every 800ms
-- Toggle on/off from the popup
-- One-click **Force Unlock** button
 
 ## Install
 
@@ -16,7 +9,6 @@ A Chrome extension that automatically re-enables the ChatGPT input box when it g
 2. Open Chrome → `chrome://extensions/`
 3. Enable **Developer mode** (top right)
 4. Click **Load unpacked** → select the `chatgpt-unlocker` folder
-5. Done
 
 ## Files
 
