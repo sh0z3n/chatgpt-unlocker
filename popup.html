@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChatGPT Unlocker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 280px;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #10a37f, #1565c0);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      border: 1px solid #0f3460;
+    }
+
+    .toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toggle-label {
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .toggle-label span {
+      display: block;
+      font-size: 11px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    /* Toggle switch */
+    .switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: #333;
+      border-radius: 24px;
+      transition: 0.3s;
+    }
+
+    .slider::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 3px;
+      bottom: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    input:checked + .slider {
+      background: linear-gradient(135deg, #10a37f, #1565c0);
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+      transition: all 0.3s;
+    }
+
+    .status-badge.active {
+      background: rgba(16, 163, 127, 0.15);
+      color: #10a37f;
+      border: 1px solid rgba(16, 163, 127, 0.3);
+    }
+
+    .status-badge.inactive {
+      background: rgba(150, 150, 150, 0.1);
+      color: #888;
+      border: 1px solid rgba(150, 150, 150, 0.2);
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .dot.pulse {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .btn-force {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(135deg, #10a37f, #1565c0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 4px;
+    }
+
+    .btn-force:hover {
+      opacity: 0.85;
+    }
+
+    .btn-force:active {
+      transform: scale(0.98);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 10px;
+      color: #444;
+      margin-top: 4px;
+    }
+
+    .footer a {
+      color: #10a37f;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🔓</div>
+    <div>
+      <h1>ChatGPT Unlocker</h1>
+      <div class="subtitle">Auto re-enable input</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="toggle-row">
+      <div class="toggle-label">
+        Auto-unlock
+        <span>Watch & re-enable disabled input</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggleSwitch" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="status-badge active" id="statusBadge">
+      <div class="dot pulse" id="statusDot"></div>
+      <span id="statusText">Active — Watching</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <button class="btn-force" id="forceBtn">⚡ Force Unlock Now</button>
+  </div>
+
+  <div class="footer">
+    ChatGPT Unlocker v1.0.0
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
